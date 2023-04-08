@@ -16,6 +16,7 @@ const ProductDetail = () => {
     product_category: "random category",
     stock: 25,
     variants: ["variant 1", "variant 2", "variant 3"],
+    price: "$45.02",
     product_description:
       "Este hermoso textil bordado a mano en Oaxaca es más que una simple pieza decorativa. Cada hilo y cada puntada cuentan una historia de la tradición y la cultura de las comunidades indígenas de la sierra. Lo que hace especial a este producto es que, al adquirirlo, estás contribuyendo a fomentar el comercio justo y apoyar directamente a las comunidades de la región. De esta manera, no solo estás adquiriendo una obra de arte única, sino que también estás haciendo una diferencia positiva en la vida de las personas que la crearon."
   }
@@ -35,6 +36,7 @@ const ProductDetail = () => {
           {product.product_title}
         </h1>
         <span className="my-3">Categoría: {product.product_category} </span>
+        <span className="mb-3">{product.price}</span>
         <span>Cantidad</span>
         <div className="qty-counter w-20 flex justify-between items-center">
           <AiOutlinePlusCircle className="hover:border-slate-500 hover:text-rose-900" />
