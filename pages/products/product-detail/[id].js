@@ -43,7 +43,7 @@ const ProductDetail = () => {
         </div>
         <div className="product-variant flex m-5 md:m-0 md:my-3">
           {product.variants.map((variant) => (
-            <div key={id} className="bg-slate-200 p-2 mr-5">
+            <div key={id} className="bg-slate-200 p-2 mr-5 hover:text-rose-900">
               {variant}
             </div>
           ))}
