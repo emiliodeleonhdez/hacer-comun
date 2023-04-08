@@ -30,7 +30,7 @@ const ProductDetail = () => {
           height={500}
         />
       </aside>
-      <aside className="product-detail flex flex-col w-3/5 p-8 h-4/5 justify-between">
+      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-3/5 p-8 justify-center items-center md:items-start justify-between">
         <h1 className="text-5xl">{product.product_title}</h1>
         <span>Categoría: {product.product_category} </span>
         <span>Cantidad</span>
