@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 
 const ProductCard = ({ cardContent }) => {
   const { title, sub, price, img_url } = cardContent
@@ -13,7 +14,10 @@ const ProductCard = ({ cardContent }) => {
         <span className="text-left">{price}</span>
         <div className="flex justify-end">
           <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900">
-            <span>Añadir al carrito</span>
+            <span className="flex justify-center items-center">
+              <AiOutlineShoppingCart className="mr-3" />
+              Añadir al carrito
+            </span>
           </button>
         </div>
       </div>
