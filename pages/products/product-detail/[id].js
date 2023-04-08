@@ -17,7 +17,7 @@ const ProductDetail = () => {
     stock: 25,
     variants: ["variant 1", "variant 2", "variant 3"],
     product_description:
-      "Discover the beauty of Oaxacan craftsmanship with our exquisite craft product, handmade with love by skilled artisans from the state of Oaxaca in Mexico."
+      "Este hermoso textil bordado a mano en Oaxaca es más que una simple pieza decorativa. Cada hilo y cada puntada cuentan una historia de la tradición y la cultura de las comunidades indígenas de la sierra. Lo que hace especial a este producto es que, al adquirirlo, estás contribuyendo a fomentar el comercio justo y apoyar directamente a las comunidades de la región. De esta manera, no solo estás adquiriendo una obra de arte única, sino que también estás haciendo una diferencia positiva en la vida de las personas que la crearon."
   }
 
   return (
@@ -30,8 +30,10 @@ const ProductDetail = () => {
           height={500}
         />
       </aside>
-      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-3/5 p-8 justify-center items-center md:items-start justify-between">
-        <h1 className="text-5xl">{product.product_title}</h1>
+      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-4/5 lg:h-3/5 p-8 justify-center items-center md:items-start justify-between">
+        <h1 className="text-xl md:text-3xl lg:text-5xl">
+          {product.product_title}
+        </h1>
         <span>Categoría: {product.product_category} </span>
         <span>Cantidad</span>
         <div className="qty-counter w-20 flex justify-between items-center">
@@ -39,9 +41,9 @@ const ProductDetail = () => {
           <span>{product.stock}</span>
           <AiOutlineMinusCircle className="hover:border-slate-500 hover:text-rose-900" />
         </div>
-        <div className="product-variant flex w-2/5 justify-between">
+        <div className="product-variant flex">
           {product.variants.map((variant) => (
-            <div key={id} className="bg-slate-200 p-2">
+            <div key={id} className="bg-slate-200 p-2 mr-5">
               {variant}
             </div>
           ))}
