@@ -30,28 +30,30 @@ const ProductDetail = () => {
           height={500}
         />
       </aside>
-      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-4/5 lg:h-3/5 p-8 justify-center items-center md:items-start justify-between">
+      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-4/5 lg:h-3/5  p-8 justify-center items-center md:items-start justify-between">
         <h1 className="text-xl md:text-3xl lg:text-5xl">
           {product.product_title}
         </h1>
-        <span>Categoría: {product.product_category} </span>
+        <span className="my-3">Categoría: {product.product_category} </span>
         <span>Cantidad</span>
         <div className="qty-counter w-20 flex justify-between items-center">
           <AiOutlinePlusCircle className="hover:border-slate-500 hover:text-rose-900" />
           <span>{product.stock}</span>
           <AiOutlineMinusCircle className="hover:border-slate-500 hover:text-rose-900" />
         </div>
-        <div className="product-variant flex">
+        <div className="product-variant flex m-5 md:m-0 md:my-3">
           {product.variants.map((variant) => (
             <div key={id} className="bg-slate-200 p-2 mr-5">
               {variant}
             </div>
           ))}
         </div>
-        <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900">
-          <span>Añadir al carrito</span>
-        </button>
-        <span>Descripción:</span>
+        <div className="m-2">
+          <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900">
+            <span>Añadir al carrito</span>
+          </button>
+        </div>
+        <span className="my-3">Descripción:</span>
         <p>{product.product_description}</p>
       </aside>
     </main>
