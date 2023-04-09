@@ -1,3 +1,7 @@
 .footer {
-    height: 60px;
+    min-height: 400px;
+}
+
+.footer > * {
+    font-family: var(--font-brandon);
 }

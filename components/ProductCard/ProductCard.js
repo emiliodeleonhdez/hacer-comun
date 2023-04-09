@@ -1,9 +1,16 @@
-import React from "react"
+// Context
+import { Cart_data } from "@/context/CartContext"
+import { useContext } from "react"
+// Image component
 import Image from "next/image"
+// Icon 
 import { AiOutlineShoppingCart } from "react-icons/ai"
 
 const ProductCard = ({ cardContent }) => {
-  const { title, sub, price, img_url } = cardContent
+  const { title, sub, price, img_url, id } = cardContent
+  const addItem = (id) => {
+    console.log("add item", id)
+  }
 
   return (
     <div className="w-64 h-96  p-7 m-4 border-solid border border-slate-800 rounded-2xl flex justify-center">
@@ -13,7 +20,7 @@ const ProductCard = ({ cardContent }) => {
         <span className="text-center">{sub}</span>
         <span className="text-left">{price}</span>
         <div className="flex justify-end">
-          <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900">
+          <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900" onClick={() => addItem(id)}>
             <span className="flex justify-center items-center">
               <AiOutlineShoppingCart className="mr-3" />
               Añadir al carrito
