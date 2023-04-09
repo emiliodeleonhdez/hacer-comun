@@ -12,9 +12,15 @@ const Navbar = () => {
                 <img src="/logo.png" width='130'></img>
             </Link>
             <ul className="flex">
-                <li className="mx-2">Buscar</li>
-                <li className="mx-2">Carrito</li>
-                <li className="mx-2">Perfil</li>
+                <li className="mx-2">
+                    <Link href="cart">Buscar</Link>
+                </li>
+                <li className="mx-2">
+                    <Link href="cart">Carrito</Link>
+                </li>
+                <li className="mx-2">
+                    <Link href="cart">Perfil</Link>
+                </li>
             </ul>
        </nav>
     )
