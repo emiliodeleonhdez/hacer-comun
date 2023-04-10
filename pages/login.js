@@ -6,14 +6,14 @@ const Login = () => {
         <div className="border border-solid border-zinc-300 p-10">
             <img src="/logo.png" width='280' className=""></img>
             <article className="flex flex-col mb-5 mt-10 pt-10 border-t border-solid border-zinc-300">
-                <input placeholder="Email address" className="border border-solid border-zinc-300 py-2 px-2"/>
+                <input placeholder="Correo electrónico" className="border border-solid border-zinc-300 py-2 px-2"/>
             </article>
             <article className="flex flex-col mb-3">
-                <input placeholder="Password" className="border border-solid border-zinc-300 py-2 px-2"/>
+                <input placeholder="Contraseña" className="border border-solid border-zinc-300 py-2 px-2"/>
             </article>
-            <span className="text-zinc-500 text-sm mb-5 inline-block">Forgot your password?</span>
+            <span className="text-zinc-500 text-sm mb-5 inline-block">¿Olvidaste tu contraseña?</span>
             <button className="block bg-zinc-300 px-4 py-2 mx-auto mb-4 w-full hover:bg-footer hover:text-white transition ease-in-out">Iniciar Sesión</button>
-            <div className="block bg-zinc-300 px-4 py-2 mx-auto w-full text-center">¿No tienes una cuenta?<Link className="ml-2 hover:underline" href="/">Regístrate</Link></div>
+            <div className="block bg-zinc-300 px-4 py-2 mx-auto w-full text-center">¿No tienes una cuenta?<Link className="ml-2 hover:underline" href="/signup">Regístrate</Link></div>
         </div>
       </div>
     )

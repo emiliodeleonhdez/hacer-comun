@@ -9,11 +9,11 @@ const Layout = ({children}) => {
     console.log(router.pathname)
     return (
        <div className="flex flex-col h-full">
-            { router.pathname !== "/login" ? <Navbar />: null}
+            { router.pathname !== "/login" && router.pathname !== "/signup" ? <Navbar />: null}
                 <main className="flex-1">
                 { children }
                 </main>
-            { router.pathname !== "/login" ? <Footer />: null}
+            { router.pathname !== "/login" && router.pathname !== "/signup" ? <Footer />: null}
         </div> 
     )
 }
