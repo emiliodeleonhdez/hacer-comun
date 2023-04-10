@@ -1,0 +1,8 @@
+.cartButton {
+    @apply bg-white text-black;
+    transition: all 500ms;
+}
+
+.cartButton:hover {
+    @apply bg-footer text-white
+}

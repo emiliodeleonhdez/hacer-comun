@@ -1,14 +1,19 @@
+import { useRouter } from 'next/router'
+
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer/Footer'
 
 const Layout = ({children}) => {
+    
+    const router = useRouter()
+    console.log(router.pathname)
     return (
        <div className="flex flex-col h-full">
-            <Navbar />
-                <div className="flex-1">
+            { router.pathname !== "/login" ? <Navbar />: null}
+                <main className="flex-1">
                 { children }
-                </div>
-            <Footer />
+                </main>
+            { router.pathname !== "/login" ? <Footer />: null}
         </div> 
     )
 }
