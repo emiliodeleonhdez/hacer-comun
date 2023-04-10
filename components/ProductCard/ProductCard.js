@@ -1,3 +1,5 @@
+import styles from './ProductCard.module.css'
+
 // Context
 import { Cart_data } from "@/context/CartContext"
 import { useContext } from "react"
@@ -13,21 +15,14 @@ const ProductCard = ({ cardContent }) => {
   }
 
   return (
-    <div className="w-64 h-96  p-7 m-4 border-solid border border-slate-800 rounded-2xl flex justify-center">
-      <div className="flex flex-col justify-between ">
-        <Image src={img_url} alt="hacer-comun" width={500} height={500} />
-        <h2 className="font-bold text-center">{title}</h2>
-        <span className="text-center">{sub}</span>
-        <span className="text-left">{price}</span>
-        <div className="flex justify-end">
-          <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900" onClick={() => addItem(id)}>
-            <span className="flex justify-center items-center">
-              <AiOutlineShoppingCart className="mr-3" />
-              Añadir al carrito
-            </span>
-          </button>
+    <div className="p-4 flex flex-col justify-center relative">
+        <div className={`absolute rounded-full p-2 bottom-1/4 right-8 ${styles.cartButton}`} onClick={()=> {addItem(id)}}>
+          <AiOutlineShoppingCart />
         </div>
-      </div>
+        <Image src="http://placekitten.com/260/390" alt="hacer-comun" width={260} height={390} className="w-full"/>
+        <h2 className="font-bold mt-2 mb-1">{title}</h2>
+        <span className="my-1">{sub}</span>
+        <span className="text-left my-1">{price}</span>
     </div>
   )
 }

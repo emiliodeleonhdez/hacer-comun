@@ -9,6 +9,9 @@
   */
   * {
     margin: 0;
+    
+      font-family: var(--font-brandon);
+  
   }
   /*
     3. Allow percentage-based heights in the application

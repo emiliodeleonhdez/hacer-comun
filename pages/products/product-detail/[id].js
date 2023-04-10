@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <main className="flex flex-col md:flex-row h-full items-center justify-center">
+    <div className="flex flex-col md:flex-row h-full items-center justify-center">
       <aside className="flex flex-col p-8">
         <Image
           src={product.img_url}
@@ -31,7 +31,7 @@ const ProductDetail = () => {
           height={500}
         />
       </aside>
-      <aside className="product-detail flex flex-col w-full md:w-2/5 h-480 md:h-4/5 lg:h-3/5  p-8 justify-center items-center md:items-start justify-between">
+      <aside className="product-detail flex flex-col w-full md:w-2/5lg:h-3/5 p-8 justify-center items-center md:items-start justify-between">
         <h1 className="text-xl md:text-3xl lg:text-5xl">
           {product.product_title}
         </h1>
@@ -58,7 +58,7 @@ const ProductDetail = () => {
         <span className="my-3">Descripción:</span>
         <p>{product.product_description}</p>
       </aside>
-    </main>
+    </div>
   )
 }
 
