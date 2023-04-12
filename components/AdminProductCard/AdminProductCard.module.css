@@ -1,0 +1,17 @@
+.editButton {
+  @apply bg-white text-black;
+  transition: all 500ms;
+}
+
+.editButton:hover {
+  @apply bg-yellow-950 text-white;
+}
+
+.deleteButton {
+  @apply bg-white text-black;
+  transition: all 500ms;
+}
+
+.deleteButton:hover {
+  @apply bg-rose-800 text-white;
+}
