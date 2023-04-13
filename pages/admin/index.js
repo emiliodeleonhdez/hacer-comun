@@ -14,7 +14,7 @@ const Admin = () => {
   //   ]
   return (
     <section>
-      <AdminProductCard />
+      <AdminProductCard path="/edit-product" />
       <AdminProductCard />
     </section>
   )
