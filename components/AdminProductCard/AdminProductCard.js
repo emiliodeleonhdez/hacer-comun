@@ -7,8 +7,8 @@ import { BsTrash } from "react-icons/bs"
 import styles from "./AdminProductCard.module.css"
 import Modal from "../Modal/Modal"
 
-const AdminProductCard = (props) => {
-  console.log(props)
+const AdminProductCard = ({ props }) => {
+  const { id, title, sub, price, img_url } = props
 
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [modalContent, setModalContent] = useState({})
@@ -36,14 +36,12 @@ const AdminProductCard = (props) => {
         className="rounded-full self-center	"
       />
       <div className="flex w-20 justify-between items-center m-1">
-        {/* <Link href={props.path}> */}
         <Link
-          href={"/admin/edit-product"}
+          href={`/admin/edit-product/${id}`}
           className={`rounded-full p-1  ${styles.editButton}`}
         >
           <AiOutlineEdit />
         </Link>
-        {/* </Link> */}
         <div
           className={`rounded-full p-1  ${styles.deleteButton}`}
           onClick={() =>
