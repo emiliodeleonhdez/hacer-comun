@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-full items-center justify-center">
+    <div className="flex flex-col md:flex-row h-full items-center justify-center container">
       <aside className="flex flex-col p-8">
         <Image
           src={product.img_url}
@@ -45,16 +45,14 @@ const ProductDetail = () => {
         </div>
         <div className="product-variant flex m-5 md:m-0 md:my-3">
           {product.variants.map((variant) => (
-            <div key={id} className="bg-slate-200 p-2 mr-5 hover:text-rose-900">
+            <div key={variant} className="bg-slate-200 p-2 mr-5 hover:text-rose-900">
               {variant}
             </div>
           ))}
         </div>
-        <div className="m-2">
-          <button className="border-solid border border-slate-800 p-2 rounded-2xl hover:border-slate-500 hover:text-rose-900">
+          <button className="border-solid border border-zinc-400 p-2 text-zinc-800 hover:bg-zinc-600 hover:text-white px-8 inline-block">
             <span>Añadir al carrito</span>
           </button>
-        </div>
         <span className="my-3">Descripción:</span>
         <p>{product.product_description}</p>
       </aside>

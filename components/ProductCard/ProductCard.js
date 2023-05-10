@@ -9,7 +9,7 @@ import Image from "next/image"
 import { AiOutlineShoppingCart } from "react-icons/ai"
 
 const ProductCard = ({ cardContent }) => {
-  const { title, sub, price, img_url, id } = cardContent
+  const { title, price, images, id, description } = cardContent
   const addItem = (id) => {
     console.log("add item", id)
   }
@@ -19,9 +19,9 @@ const ProductCard = ({ cardContent }) => {
         <div className={`absolute rounded-full p-2 bottom-1/4 right-8 ${styles.cartButton}`} onClick={()=> {addItem(id)}}>
           <AiOutlineShoppingCart />
         </div>
-        <Image src="http://placekitten.com/260/390" alt="hacer-comun" width={260} height={390} className="w-full"/>
+        <Image src={images[0]} alt="hacer-comun" width={260} height={390} className="w-full"/>
         <h2 className="font-bold mt-2 mb-1">{title}</h2>
-        <span className="my-1">{sub}</span>
+        <span className="my-1">{description}</span>
         <span className="text-left my-1">{price}</span>
     </div>
   )
