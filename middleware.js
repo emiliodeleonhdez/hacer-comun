@@ -1,29 +1,22 @@
 import { NextResponse } from "next/server";
-import instance from "./hacer-comunAPI/http-instance";
 
-export function middleware(request) {
+export async function middleware(request) {
   const apiUrl = `https://api-rest-hacer-comun-production.up.railway.app`;
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDUwYTM0Yzk2ODExM2E5MmQ4MDhlN2IiLCJyb2xlIjoiY2xpZW50IiwiaWF0IjoxNjgzOTU3NDczLCJleHAiOjE2ODM5NjEwNzN9.nc8eXZzSGKRHWnfOiKNN4oB6if7dm4RpE8VzknMSLSU";
-  const validateToken = fetch(`${apiUrl}/users/validate-token`, {
+    "syJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDUwYTM0Yzk2ODExM2E5MmQ4MDhlN2IiLCJyb2xlIjoiY2xpZW50IiwiaWF0IjoxNjg0MDM1MTYwLCJleHAiOjE2ODQwMzg3NjB9.8seYwq4di6zdJlqEIz-POliK5hW3HlYOxjz1heKwwGA";
+
+  const validateToken = await fetch(`${apiUrl}/users/auth/validate-token`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
-  return NextResponse.next();
+  }).then((response) => {
+      console.log("response status code: ",response.status)
+    if (response.status !== 200) {
+        console.log(request.url)
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
+    return NextResponse.next();
+  });
 }
 
 export const config = {
