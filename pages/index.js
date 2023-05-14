@@ -9,7 +9,6 @@ const Home = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/`)
     .then((response) => response.json()) 
     .then((data) => {
-      console.log(data)
       setProducts(data.products)
     }
     );

@@ -1,13 +1,27 @@
 import React from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
+import { useEffect, useState } from "react"
+
 
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { AiOutlineMinusCircle } from "react-icons/ai"
 
 const ProductDetail = () => {
+  const [productInfo, setProductInfo] = useState({})
   const router = useRouter()
-  const { id } = router.query
+  
+  
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${router.query.id}`)
+    .then((response) => response.json()) 
+    .then((data) => {
+      console.log(data.product)
+      setProductInfo(data.product)
+    }
+    );
+  }, [router.query]);
 
   const product = {
     img_url:
@@ -22,10 +36,12 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-full items-center justify-center container">
+    <>
+    { productInfo?.title ? <div className="flex flex-col md:flex-row h-full items-center justify-center container">
       <aside className="flex flex-col p-8">
         <Image
-          src={product.img_url}
+          src={productInfo.images[0]
+          }
           alt="hacer-comun"
           width={500}
           height={500}
@@ -33,18 +49,18 @@ const ProductDetail = () => {
       </aside>
       <aside className="product-detail flex flex-col w-full md:w-2/5lg:h-3/5 p-8 justify-center items-center md:items-start justify-between">
         <h1 className="text-xl md:text-3xl lg:text-5xl">
-          {product.product_title}
+          {productInfo.title}
         </h1>
         <span className="my-3">Categoría: {product.product_category} </span>
-        <span className="mb-3">{product.price}</span>
+        <span className="mb-3">{productInfo.price}</span>
         <span>Cantidad</span>
         <div className="qty-counter w-20 flex justify-between items-center">
           <AiOutlinePlusCircle className="hover:border-slate-500 hover:text-rose-900" />
-          <span>{product.stock}</span>
+          <span>{productInfo.inStock}</span>
           <AiOutlineMinusCircle className="hover:border-slate-500 hover:text-rose-900" />
         </div>
         <div className="product-variant flex m-5 md:m-0 md:my-3">
-          {product.variants.map((variant) => (
+          {productInfo.colors.map((variant) => (
             <div key={variant} className="bg-slate-200 p-2 mr-5 hover:text-rose-900">
               {variant}
             </div>
@@ -54,9 +70,10 @@ const ProductDetail = () => {
             <span>Añadir al carrito</span>
           </button>
         <span className="my-3">Descripción:</span>
-        <p>{product.product_description}</p>
+        <p>{productInfo.description}</p>
       </aside>
-    </div>
+    </div> : null }
+    </>
   )
 }
 
