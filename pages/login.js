@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -11,14 +12,17 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
-    console.log(formData);
   };
 
   const handleLogin = e => {
   e.preventDefault();
   const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL
   axios.post(`${apiUrl}/users/auth`, formData)
-    .then(res => console.log(res.data))
+    .then(res => {
+      setToken(res.data.token)
+      const currentDomain = window.location.hostname
+      Cookies.set("token", res.data.token, {domain: currentDomain})
+    })
     .catch(err => console.log(err));
 };
 

@@ -1,13 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"
 
 export async function middleware(request) {
   const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDUwYTM0Yzk2ODExM2E5MmQ4MDhlN2IiLCJyb2xlIjoiY2xpZW50IiwiaWF0IjoxNjg0MDg4MTc5LCJleHAiOjE2ODQwOTE3Nzl9.MTBZioSNEj7YDIty2DW_BIhiMRhq2H5hlYnUyAAFT7Q";
-
+  const tokenCookie = request.cookies.get("token").value
   const validateToken = await fetch(`${apiUrl}/users/auth/validate-token`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${tokenCookie}`,
     },
   });
   if (validateToken.status !== 200) {

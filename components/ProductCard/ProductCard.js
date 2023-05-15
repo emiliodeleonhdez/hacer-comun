@@ -11,7 +11,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai"
 const ProductCard = ({ cardContent }) => {
   const { title, price, images, id, description } = cardContent
   const addItem = (id) => {
-    console.log("add item", id)
   }
 
   return (
