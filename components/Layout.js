@@ -6,7 +6,6 @@ import Footer from './Footer/Footer'
 const Layout = ({children}) => {
     
     const router = useRouter()
-    console.log(router.pathname)
     return (
        <div className="flex flex-col h-full">
             { router.pathname !== "/login" && router.pathname !== "/signup" ? <Navbar />: null}

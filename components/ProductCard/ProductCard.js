@@ -11,7 +11,6 @@ import Link from 'next/link';
 const ProductCard = ({ cardContent }) => {
   const { title, price, images, _id, description } = cardContent
   const addItem = (id) => {
-    console.log("add item", id)
   }
 
   return (
