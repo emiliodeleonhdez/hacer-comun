@@ -1,9 +1,11 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const Login = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,9 +21,9 @@ const Login = () => {
   const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL
   axios.post(`${apiUrl}/users/auth`, formData)
     .then(res => {
-      setToken(res.data.token)
       const currentDomain = window.location.hostname
       Cookies.set("token", res.data.token, {domain: currentDomain})
+      router.push("/")
     })
     .catch(err => console.log(err));
 };
